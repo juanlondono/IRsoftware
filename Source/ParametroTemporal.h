@@ -37,13 +37,26 @@ protected:
     float sumar(float *vector, int Longitud);
     float encontrarMaximo(float *vector, int Longitud); //Mirar si se puede utilizar un objeto diferente de float (ej. Buffer) que haga estas operaciones.
     float encontrarMinimo(float *vector, int Longitud);
-    void multiplicarVectoresPuntoPunto(float *vector1, float *vector2, float *Multiplicado, int Longitud);
+    //void multiplicarVectoresPuntoPunto(float *vector1, float *vector2, float *Multiplicado, int Longitud);
     /**Devuelve el indice i en donde el 'valor' se aproxima mas al valor de vector[i]*/
     int encontrarMuestraAprox(float *vector, float valor, int Longitud);
     
 private:
     double SampleRate;
     
+    //Variables 
+    ScopedPointer<float> IRi;
+    ScopedPointer<float> EdBi;
+    ScopedPointer<float> EdBcortado;
+    ScopedPointer<float> EdBregresion;
+    ScopedPointer<float> IRcuad;
+    ScopedPointer<float> E;
+    ScopedPointer<float> tiempo;
+    ScopedPointer<float> txL;
+    ScopedPointer<float> tCuad;
+    ScopedPointer<float> vVector;
+    ScopedPointer<float> vRegresion;
+    ScopedPointer<float> vectorAbs;
 };
 
 

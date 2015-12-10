@@ -52,8 +52,6 @@ void ParametroEnergetico::relacionEnergetica(Buffer *entradai, float &salidai /*
         }
         
     }
-
-    
     if(sumaDen==0){
         salidai=0.0; //Este es por seguridad en caso de que el buffer de entrada no tenga nada y el denominador quede en cero.
     }else{

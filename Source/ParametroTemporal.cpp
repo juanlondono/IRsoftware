@@ -22,11 +22,14 @@ ParametroTemporal::~ParametroTemporal(){
 //==============================================================================
 void ParametroTemporal::almacenarParametroTemporal(Buffer *entradai, float &salida, float EdB1, float EdB2, float &Xi){
     int LongitudIR=entradai->getSize();
-    float *IRi=entradai->getData(); //Borrar//ScopedPointer<float> IRi=entradai->getData();
+    
+    ///*float */IRi=entradai->getData();
+    IRi=new float[LongitudIR];
+    FloatVectorOperations::copy(IRi, entradai->getData(), LongitudIR);
     
     
     //Curva de decaimiento i en dB EdB
-    float *EdBi=new float[LongitudIR-1]; //Borrar //ScopedPointer<float> EdBi=new float[LongitudIR-1];
+    /*float */EdBi=new float[LongitudIR-1];
     
     integralSchroeder(IRi, EdBi, LongitudIR);
     
@@ -36,9 +39,9 @@ void ParametroTemporal::almacenarParametroTemporal(Buffer *entradai, float &sali
     muestraEdB2=encontrarMuestraAprox(EdBi, EdB2, LongitudIR-1);
     //Selecciona el tramo de EdB que decae de EdB1 a EdB2
     
-    float *EdBcortado=new float[muestraEdB2-muestraEdB1+1]; //ScopedPointer<float> EdBcortado=new float[muestraEdB2-muestraEdB1+1];
-    float *EdBregresion=new float[muestraEdB2-muestraEdB1+1 ]; //ScopedPointer<float> EdBregresion=new float[muestraEdB2-muestraEdB1+1 ];
-    
+    /*float */EdBcortado=new float[muestraEdB2-muestraEdB1+1];
+    /*float */EdBregresion=new float[muestraEdB2-muestraEdB1+1 ];
+
     float aISO;
     float bISO;//Pendiente de la regresion. RT=-60/bISO.
     float Rcuad;
@@ -54,11 +57,12 @@ void ParametroTemporal::almacenarParametroTemporal(Buffer *entradai, float &sali
 //==============================================================================
 
 void ParametroTemporal::integralSchroeder(float *IR, float *EdB, int Longitud){
-    float *IRcuad=new float[Longitud]; //Borrar//ScopedPointerfloat> IRcuad=new float[Longitud];
-    multiplicarVectoresPuntoPunto(IR, IR, IRcuad, Longitud);
+    /*float */IRcuad=new float[Longitud];
+    //multiplicarVectoresPuntoPunto(IR, IR, IRcuad, Longitud);
+    FloatVectorOperations::multiply(IRcuad, IR, IR, Longitud);
     float EnergiaTotal=sumar(IRcuad, Longitud);
     
-    float *E=new float[Longitud]; //Borrar//ScopedPointer<float> E=new float[Longitud];
+    /*float */E=new float[Longitud];
     
     float h1=0;
     for (int i=0; i<Longitud; ++i) {
@@ -75,7 +79,7 @@ void ParametroTemporal::integralSchroeder(float *IR, float *EdB, int Longitud){
 //==============================================================================
 
 void ParametroTemporal::regresionLineal(float *vector, float *regresion, float &a, float&b, int Longitud, float &Rcuad){
-    float *tiempo=new float[Longitud]; //Borrar//ScopedPointer<float> tiempo=new float[Longitud];
+    /*float */tiempo=new float[Longitud];
     
     for (int i=0; i<Longitud; ++i) {
         tiempo[i]=i+1;
@@ -84,17 +88,19 @@ void ParametroTemporal::regresionLineal(float *vector, float *regresion, float &
     float Lprom=sumar(vector, Longitud)/Longitud;
     float tprom=sumar(tiempo, Longitud)/Longitud;
     
-    float *txL=new float[Longitud]; //Borrar//ScopedPointer<float> txL=new float[Longitud];
-    float *tCuad=new float[Longitud]; //Borrar//ScopedPointer<float> tCuad=new float[Longitud];
+    /*float */txL=new float[Longitud];
+    /*float */tCuad=new float[Longitud]; 
     
-    multiplicarVectoresPuntoPunto(tiempo, vector, txL, Longitud);
-    multiplicarVectoresPuntoPunto(tiempo, tiempo, tCuad, Longitud);
+    //multiplicarVectoresPuntoPunto(tiempo, vector, txL, Longitud);
+    FloatVectorOperations::multiply(txL, tiempo, vector, Longitud);
+    //multiplicarVectoresPuntoPunto(tiempo, tiempo, tCuad, Longitud);
+    FloatVectorOperations::multiply(tCuad, tiempo, tiempo, Longitud);
     
     b=(sumar(txL, Longitud)-Longitud*tprom*Lprom)/(sumar(tCuad, Longitud)-Longitud*tprom*tprom);
     a=Lprom-b*tprom;
     
-    float *vVector=new float[Longitud]; //Borrar//ScopedPointer<float> vVector=new float[Longitud];
-    float *vRegresion=new float[Longitud]; //Borrar//ScopedPointer<float> vRegresion=new float[Longitud];
+    /*float */vVector=new float[Longitud];
+    /*float */vRegresion=new float[Longitud];
     for (int i=0; i<Longitud; ++i) {
         regresion[i]=a+b*tiempo[i];
         
@@ -108,11 +114,11 @@ void ParametroTemporal::regresionLineal(float *vector, float *regresion, float &
 
 //==============================================================================
 
-void ParametroTemporal::multiplicarVectoresPuntoPunto(float *vector1, float *vector2, float *Multiplicado, int Longitud){
-    for (int i=0; i<Longitud; ++i) {
-        Multiplicado[i]=vector1[i]*vector2[i];
-    }
-}
+//void ParametroTemporal::multiplicarVectoresPuntoPunto(float *vector1, float *vector2, float *Multiplicado, int Longitud){
+//    for (int i=0; i<Longitud; ++i) {
+//        Multiplicado[i]=vector1[i]*vector2[i];
+//    }
+//}
 
 //==============================================================================
 
@@ -151,7 +157,7 @@ float ParametroTemporal::encontrarMinimo(float *vector, int Longitud){
 //==============================================================================
 
 int ParametroTemporal::encontrarMuestraAprox(float *vector, float valor, int Longitud){
-    float *vectorAbs=new float[Longitud]; //Borrar//ScopedPointer<float> vectorAbs=new float[Longitud];
+    /*float */vectorAbs=new float[Longitud]; 
     for (int i=0; i<Longitud; ++i) {
         vectorAbs[i]=std::abs(vector[i]-valor);
     }

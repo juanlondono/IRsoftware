@@ -3,3 +3,10 @@ Builds/MacOSX/build/
 Builds/MacOSX/IRsoftware.xcodeproj/
 Builds/MacOSX/build/Debug/IRsoftware.app/
 JuceLibraryCode/
+<<<<<<< HEAD
+Builds/MacOSX/IRsoftware.xcodeproj/project.xcworkspace/xcuserdata/juanlondono.xcuserdatad/UserInterfaceState.xcuserstate
+Builds/MacOSX/build/Debug/IRsoftware.app/Contents/MacOS/IRsoftware
+
+=======
+IRsoftware.jucer
+>>>>>>> origin/master
