@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2012
+Project("{D38A9332-1505-080C-A24F-A8577BF6C3D4}") = "IRsoftware", "IRsoftware.vcxproj", "{93F5F99F-41FD-777F-D649-FBD388DC3385}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93F5F99F-41FD-777F-D649-FBD388DC3385}.Debug|Win32.ActiveCfg = Debug|Win32
+		{93F5F99F-41FD-777F-D649-FBD388DC3385}.Debug|Win32.Build.0 = Debug|Win32
+		{93F5F99F-41FD-777F-D649-FBD388DC3385}.Release|Win32.ActiveCfg = Release|Win32
+		{93F5F99F-41FD-777F-D649-FBD388DC3385}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
