@@ -3,3 +3,4 @@ Builds/MacOSX/build/
 Builds/MacOSX/IRsoftware.xcodeproj/
 Builds/MacOSX/build/Debug/IRsoftware.app/
 JuceLibraryCode/
+IRsoftware.jucer
