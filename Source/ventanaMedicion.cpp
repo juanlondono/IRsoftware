@@ -12,7 +12,7 @@
 
 //==============================================================================
 //Ventana Medición
-ventanaMedicion::ventanaMedicion() : deviceManager(MainContentComponent::getAudioDeviceManagerCompartido()), meterThread ("Meter Thread"), w1(2.0f*float_Pi*10),w2(2*float_Pi*22000)
+ventanaMedicion::ventanaMedicion() : deviceManager(MainContentComponent::getAudioDeviceManagerCompartido()), meterThread ("Meter Thread"), f1(10),f2(22000)
 {
     //Medición
     int offsetX=0;
@@ -73,7 +73,6 @@ ventanaMedicion::ventanaMedicion() : deviceManager(MainContentComponent::getAudi
     duracionRTestimado->setEnabled(true);
     
     amplitude=0.0;
-    t=0.0;
     phase=0.0;
     scount=0;
     T=duracionsweep->getText().getFloatValue();//Duración del sweep
@@ -82,15 +81,14 @@ ventanaMedicion::ventanaMedicion() : deviceManager(MainContentComponent::getAudi
     outputEnabled=false;
     mySweeps=new Signal();
     mySweeps->setDuracionSweep(T);
-    mySweeps->setTipo(6);//Sets el sweep logaritmico por default.
+    mySweeps->setTipo(6);
+    sweepSizeSamples=ceil(T*sampleRate);
     
     definirFFT(1);
     
     addAndMakeVisible (&meterL);
     meterThread.addTimeSliceClient (&meterL);
     meterThread.startThread(1);
-    
-    deviceManager.addAudioCallback(this);
     
 }
 
@@ -152,10 +150,10 @@ void ventanaMedicion::buttonClicked(Button* buttonThatWasClicked){
             duracionsweep->setEnabled(false);
             duracionRTestimado->setEnabled(false);
             
-            t=0.0;
             amplitude=gainsweep.getValue();
             T=duracionsweep->getText().getFloatValue();
             mySweeps->setDuracionSweep(T);
+            sweepSizeSamples=ceil(T*sampleRate);
             if (LinLog->getText() == "Lineal") {
                 mySweeps->setTipo(5);
             }else{
@@ -164,7 +162,10 @@ void ventanaMedicion::buttonClicked(Button* buttonThatWasClicked){
             scount=0;
             outputEnabled=true;
             
+            deviceManager.addAudioCallback(this);
+            
         }else if (testbtn->getButtonText()=="Parar"){
+            deviceManager.removeAudioCallback(this);
             outputEnabled=false;
             testbtn->setButtonText("Test");
             amplitude=0.0;
@@ -181,16 +182,15 @@ void ventanaMedicion::buttonClicked(Button* buttonThatWasClicked){
            
             T=duracionsweep->getText().getFloatValue();
             mySweeps->setDuracionSweep(T);
+            sweepSizeSamples=ceil(T*sampleRate);
             if (LinLog->getText() == "Lineal") {
                 mySweeps->setTipo(5);
             }else{
                 mySweeps->setTipo(6);
             }
-            SweepSize = T*sampleRate;
-            fftSize=1.11*SweepSize+1.11*duracionRTestimado->getText().getFloatValue()*sampleRate;
+            fftSize=1.11*sweepSizeSamples+1.11*ceil(duracionRTestimado->getText().getFloatValue()*sampleRate);
             definirFFT(fftSize);
             
-            t=0.0;
             amplitude=gainsweep.getValue();
             scount=0;
             
@@ -203,7 +203,10 @@ void ventanaMedicion::buttonClicked(Button* buttonThatWasClicked){
             duracionRTestimado->setEnabled(false);
             gainsweep.setEnabled(false);
             
+            deviceManager.addAudioCallback(this);
+            
         }else {
+            deviceManager.removeAudioCallback(this);
             outputEnabled=false;
             startbtn->setButtonText(medText);
             amplitude=0.0;
@@ -215,6 +218,7 @@ void ventanaMedicion::buttonClicked(Button* buttonThatWasClicked){
             gainsweep.setEnabled(true);
         }
     }else if(buttonThatWasClicked==deconvbtn){
+        deviceManager.removeAudioCallback(this);
         startbtn->setButtonText(medText);
         
         LinLog->setEnabled(true);
@@ -234,7 +238,7 @@ void ventanaMedicion::buttonClicked(Button* buttonThatWasClicked){
         }
         
         fftw_execute(transformadah); //Respuesta al impulso queda en la variable 'h'
-        int Length=(fftSize-SweepSize);
+        int Length=(fftSize-sweepSizeSamples);
         
         IRcompleta->clear();
         IRcompleta->setSize(1,Length);
@@ -255,86 +259,44 @@ void ventanaMedicion::buttonClicked(Button* buttonThatWasClicked){
         }else if(startbtn->getButtonText()=="Parar"){
             startbtn->triggerClick();
         }
-        
     }
-    
 }
 
-//void ventanaMedicion::audioDeviceIOCallback(const float** inputData,int InputChannels,float** outputData,int OutputChannels,int numSamples){
-//    meterL.copySamples (inputData[0], numSamples);
-//    
-//    const AudioSampleBuffer RespBuff (const_cast<float**> (inputData), 1, numSamples);
-//    const AudioSampleBuffer SweepBuff (const_cast<float**> (outputData), 1, numSamples);
-//    const float originalt = t;
-//    for(int i = 0; i < OutputChannels; i++){
-//        t = originalt;
-//        for(int j = 0; j < numSamples; j++){
-//            if (LinLog->getText() == "Lineal") {
-//                phase = std::fmod((w1*t) + (((w2-w1)*(1/T))*(t*t)/2), 2.0f*float_Pi); //Lineal
-//            }else{
-//                phase = std::fmod(((w1*T)/(std::log(w2/w1)))*((std::exp((t/T)*(std::log(w2/w1))))-1), 2 * float_Pi);//Logaritmico
-//            }
-//            outputData[i][j]=amplitude*std::sin(phase);
-//            
-//            if (testbtn->getButtonText()=="Parar") {
-//                amplitude=gainsweep.getValue();
-//            }
-//            
-//            if (startbtn->getButtonText()=="Parar") {
-//                if ((scount+j)<fftSize) {
-//                    x[scount+j][0]=SweepBuff.getSample(0, j);
-//                    y[scount+j][0]=RespBuff.getSample(0, j);
-//                }else{
-//                    if(deconvolucion){
-//                        deconvbtn->triggerClick();
-//                    }
-//                    deconvolucion=false;
-//                }
-//            }
-//            
-//            if (t>T) {
-//                t=0.0;
-//                if (startbtn->getButtonText()=="Parar"){
-//                    amplitude=0.0;
-//                }
-//            }else{
-//                t+=1.0/sampleRate;
-//            }
-//        }
-//    }
-//    if ((scount+numSamples)>UINT_MAX) {
-//        scount=0;
-//    }else{
-//        scount+=numSamples;
-//    }
-//    
-//}
 
 void ventanaMedicion::audioDeviceIOCallback(const float** inputData,int InputChannels,float** outputData,int OutputChannels,int numSamples){
     meterL.copySamples (inputData[0], numSamples);
     const AudioSampleBuffer RespBuff (const_cast<float**> (inputData), 1, numSamples);
     const AudioSampleBuffer SweepBuff (const_cast<float**> (outputData), 1, numSamples);
+    amplitudEnvelope=new AudioSampleBuffer(1,numSamples);
+    
     if (outputEnabled) {
         for (int i=0; i<OutputChannels; ++i) {
-            if ((scount>(T*sampleRate)) && startbtn->getButtonText()=="Parar") {
-                amplitude=0.0;
-            }else if ((scount+numSamples)>(T*sampleRate)){
-                for (int n=0; n<numSamples; ++n) {
-                    amplitude=gainsweep.getValue()*((1.0f/numSamples)*(-n)+1); //Fade out para que no suene un clip tan fuerte
+            amplitudEnvelope->clear();
+            
+            for (int j=0; j<numSamples; j++){
+                if (scount>sweepSizeSamples) {
+                    amplitudEnvelope->getWritePointer(0)[j]=0.0f;
                 }
-            }else{
-                amplitude=gainsweep.getValue();
+                else if(scount+j>(sweepSizeSamples/*-1000*/)){
+                    amplitudEnvelope->getWritePointer(0)[j]=gainsweep.getValue()*0.5f*(1.0+cos(float_Pi*(scount+j-kp)/Nt));
+                }else{
+                    amplitudEnvelope->getWritePointer(0)[j]=gainsweep.getValue();
+                    if (scount+j==(sweepSizeSamples/*-1000*/)) {
+                        kp=scount+j+1;
+                        Nt= numSamples-(j+2);
+                        //Nt= /*-1000*/;
+                    }
+                }
             }
-            FloatVectorOperations::copyWithMultiply(outputData[i], mySweeps->getReadSamples(w1/(2.0f*float_Pi), w2/(2.0f*float_Pi), scount, numSamples, sampleRate), amplitude, numSamples);
+            FloatVectorOperations::multiply(outputData[i],mySweeps->getReadSamples(f1,f2,scount,numSamples,sampleRate),amplitudEnvelope->getReadPointer(0), numSamples);
             
             for (int j=0; j<numSamples; ++j) {
                 if (startbtn->getButtonText()=="Parar") {
-                    if ((scount+numSamples)<fftSize) {
+                    if ((scount+j)<fftSize) {
                         x[scount+j][0]=SweepBuff.getSample(0, j);
                         y[scount+j][0]=RespBuff.getSample(0, j);
                     }else{
                         outputEnabled=false;
-                        amplitude=0.0;
                         if(deconvolucion){
                             deconvbtn->triggerClick();
                         }
@@ -345,7 +307,7 @@ void ventanaMedicion::audioDeviceIOCallback(const float** inputData,int InputCha
             
 
         }
-        if ((scount+numSamples)>UINT_MAX || ((scount+numSamples)>(T*sampleRate) && testbtn->getButtonText()=="Parar")) {
+        if (scount>sweepSizeSamples && testbtn->getButtonText()=="Parar") {
             scount=0;
         }else{
             scount+=numSamples;
@@ -373,7 +335,7 @@ void ventanaMedicion::definirFFT(int fftSize){
 }
 
 //========================================================================================
-ventanaConfiguracionesAudio::ventanaConfiguracionesAudio() : deviceManager(MainContentComponent::getAudioDeviceManagerCompartido()), settingsComp(deviceManager, 1, 1, 1, 2, false, false, false, false)
+ventanaConfiguracionesAudio::ventanaConfiguracionesAudio() : deviceManager(MainContentComponent::getAudioDeviceManagerCompartido()), settingsComp(deviceManager, 1, 1, 1, 1, false, false, false, false)
 {
     //Configuraciones
     addAndMakeVisible(settingsComp);

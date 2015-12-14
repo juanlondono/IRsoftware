@@ -37,7 +37,7 @@ extern TextButton *cancelMed;
 
 static const char* botonTextTime[6] = {"EDT[s]","RT10[s]", "RT20[s]", "RT30[s]"};
 static const char* botonTextEnergy[7] = {"C50[dB]","C80[dB]","STe[dB]", "STl[dB]", "D50[-]", "Ts[ms]", "SNR[dB]"};
-static const char* bandasTercioOut[31] = {"20","25","31.5","40","50","63","80","100","125","160","200","250","315","400","500","630","800","1k","1.25k","1.6k","2k","2.5k","3.15k","4k","5k","6k","8k","10k","12.5k","16k","20k"};
+static const char* bandasTercioOut[30] = {"25","31.5","40","50","63","80","100","125","160","200","250","315","400","500","630","800","1k","1.25k","1.6k","2k","2.5k","3.15k","4k","5k","6k","8k","10k","12.5k","16k","20k"};
 static int groupdelay10[10]={2180, 1090, 557, 277, 140, 69, 35, 17, 8, 5};
 static int groupdelay30[30]={9900, 6720, 5367, 4306, 3369, 2710, 2151, 1700, 1354, 1075, 850, 667, 537, 427, 340, 270, 214, 170, 135, 107, 85, 67, 53, 42, 33, 26, 21, 16, 13, 9};
 
@@ -75,7 +75,7 @@ public:
     //Menu Bar
     StringArray getMenuBarNames();
     PopupMenu getMenuForIndex(int index,const String& name);
-    enum MenuIDs{medicion=1,importar,exParametros/*,salir*/,octava,tercio, ayuda};
+    enum MenuIDs{medicion=1,importar,exParametros,octava,tercio, ayuda};
     void menuItemSelected(int menuID, int index);
     //==============================================================================
    
@@ -94,12 +94,16 @@ private:
     OwnedArray<Buffer>                      Xi; //Relacionado al Rcuadrado de los temporales Xi=1000(1-Rcuadrado)
     OwnedArray<Buffer>                      Energeticos;
     
-    int NumeroBandas;
-    int LongitudIRrecortada;
-    int t0,posi;
-    int LongitudIRcola;
-    bool IRchanged;
-    bool validIR;
+    int                     numeroBandas;
+    int                     LongitudIRrecortada;
+    int                     t0,posi;
+    int                     LongitudIRcola;
+    bool                    IRchanged;
+    bool                    validIR;
+    enum FilterRes{
+        octavas=1,
+        tercios
+    }filterRes;
     
     //Para Pintar
     ScopedPointer<Buffer>                   bufferWaveform;

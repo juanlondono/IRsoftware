@@ -12,7 +12,7 @@
 #define SIGNAL_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-
+#include <math.h>
 
 class Signal {
 public:
@@ -30,12 +30,12 @@ public:
     
     
 private:
-    double sRate;
+    double      sRate;
     //float desfase;//Para guardar el desfase que tenia la señal
-    int tipoS;
-    float duracionSweepS;
+    int         tipoS;
+    float       duracionSweepS;
     float f1,f2; //f1
-    float t;
+    double t;
     Random rand;
     AudioSampleBuffer *signalBuffer;
 };

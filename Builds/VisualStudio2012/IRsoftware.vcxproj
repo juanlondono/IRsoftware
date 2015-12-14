@@ -38,10 +38,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">IRsoftware</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">IRsoftware</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <PlatformToolset>v110</PlatformToolset>
@@ -141,145 +139,145 @@
     <ClCompile Include="..\..\Source\PlotComponent.cpp"/>
     <ClCompile Include="..\..\Source\Signal.cpp"/>
     <ClCompile Include="..\..\Source\ventanaMedicion.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioFilePlayer.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioFilePlayer.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioFilePlayerExt.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioFilePlayerExt.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioSampleBufferAudioFormat.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioSampleBufferAudioFormat.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioUtilityUnitTests.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioUtilityUnitTests.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_EnvelopeFollower.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_EnvelopeFollower.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_FilteringAudioSource.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_FilteringAudioSource.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_LoopingAudioSource.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_LoopingAudioSource.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_PitchDetector.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_PitchDetector.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_ReversibleAudioSource.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_ReversibleAudioSource.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_SampleRateConverter.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_SampleRateConverter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_SoundTouchAudioSource.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_SoundTouchAudioSource.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_SoundTouchProcessor.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_SoundTouchProcessor.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\fft\dRowAudio_FFT.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\fft\dRowAudio_FFT.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\fft\dRowAudio_LTAS.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\fft\dRowAudio_LTAS.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\fft\dRowAudio_mac_FFTOperation.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\fft\dRowAudio_mac_FFTOperation.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\fft\dRowAudio_Window.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\fft\dRowAudio_Window.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\filters\dRowAudio_BiquadFilter.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\filters\dRowAudio_BiquadFilter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\filters\dRowAudio_OnePoleFilter.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\filters\dRowAudio_OnePoleFilter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_AudioFileDropTarget.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_AudioFileDropTarget.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_AudioOscilloscope.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_AudioOscilloscope.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_AudioTransportCursor.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_AudioTransportCursor.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_CentreAlignViewport.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_CentreAlignViewport.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Clock.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Clock.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_CpuMeter.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_CpuMeter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_GraphicalComponent.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_GraphicalComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_MusicLibraryTable.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_MusicLibraryTable.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_SegmentedMeter.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_SegmentedMeter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Sonogram.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Sonogram.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Spectrograph.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Spectrograph.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Spectroscope.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Spectroscope.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_TriggeredScope.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_TriggeredScope.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_AudioThumbnailImage.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_AudioThumbnailImage.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_ColouredAudioThumbnail.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_ColouredAudioThumbnail.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_DraggableWaveDisplay.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_DraggableWaveDisplay.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_PositionableWaveDisplay.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_PositionableWaveDisplay.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\filebrowser\dRowAudio_BasicFileBrowser.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\filebrowser\dRowAudio_BasicFileBrowser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\filebrowser\dRowAudio_ColumnFileBrowser.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\filebrowser\dRowAudio_ColumnFileBrowser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\maths\dRowAudio_MathsUnitTests.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\maths\dRowAudio_MathsUnitTests.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\network\dRowAudio_CURLEasySession.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\network\dRowAudio_CURLEasySession.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\network\dRowAudio_CURLManager.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\network\dRowAudio_CURLManager.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\parameters\dRowAudio_PluginParameter.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\parameters\dRowAudio_PluginParameter.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\streams\dRowAudio_MemoryInputSource.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\streams\dRowAudio_MemoryInputSource.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_EncryptedString.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_EncryptedString.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_ITunesLibrary.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_ITunesLibrary.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_ITunesLibraryParser.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_ITunesLibraryParser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_UnityBuilder.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_UnityBuilder.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_UnityProjectBuilder.cpp">
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_UnityProjectBuilder.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -304,6 +302,9 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\midi\juce_MidiMessageSequence.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\effects\juce_FFT.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
@@ -708,6 +709,9 @@
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\native\juce_android_Threads.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\native\juce_curl_Network.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\native\juce_linux_CommonFile.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -756,10 +760,16 @@
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\hashing\juce_SHA256.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\hashing\juce_Whirlpool.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\values\juce_Value.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\values\juce_ValueTree.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\undomanager\juce_UndoManager.cpp">
@@ -1386,21 +1396,21 @@
     <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_video\native\juce_win32_QuickTimeMovieComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\juce_audio_basics.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\juce_audio_devices.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\juce_audio_formats.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\juce_audio_processors.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\juce_audio_utils.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\juce_core.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\juce_cryptography.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\juce_data_structures.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\juce_events.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\juce_graphics.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\juce_gui_basics.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\juce_gui_extra.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\juce_opengl.cpp"/>
-    <ClCompile Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_video\juce_video.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\dRowAudio\dRowAudio\dRowAudio.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_audio_processors\juce_audio_processors.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_audio_utils\juce_audio_utils.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_core\juce_core.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_cryptography\juce_cryptography.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_events\juce_events.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_graphics\juce_graphics.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_opengl\juce_opengl.cpp"/>
+    <ClCompile Include="..\..\..\..\JUCE\modules\juce_video\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\CustomButtonComponent.h"/>
@@ -1413,73 +1423,73 @@
     <ClInclude Include="..\..\Source\PlotComponent.h"/>
     <ClInclude Include="..\..\Source\Signal.h"/>
     <ClInclude Include="..\..\Source\ventanaMedicion.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioFilePlayer.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioFilePlayerExt.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioSampleBufferAudioFormat.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_AudioUtility.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_Buffer.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_EnvelopeFollower.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_FifoBuffer.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_FilteringAudioSource.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_LoopingAudioSource.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_Pitch.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_PitchDetector.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_ReversibleAudioSource.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_SampleRateConverter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_SoundTouchAudioSource.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\dRowAudio_SoundTouchProcessor.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\fft\dRowAudio_FFT.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\fft\dRowAudio_LTAS.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\fft\dRowAudio_Window.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\filters\dRowAudio_BiquadFilter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\audio\filters\dRowAudio_OnePoleFilter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_AudioFileDropTarget.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_AudioOscilloscope.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_AudioTransportCursor.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_CentreAlignViewport.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Clock.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_CpuMeter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_DefaultColours.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_GraphicalComponent.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_GuiHelpers.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_MusicLibraryTable.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_SegmentedMeter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Sonogram.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Spectrograph.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_Spectroscope.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\dRowAudio_TriggeredScope.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_AudioThumbnailImage.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_ColouredAudioThumbnail.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_DraggableWaveDisplay.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\audiothumbnail\dRowAudio_PositionableWaveDisplay.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\filebrowser\dRowAudio_BasicFileBrowser.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\filebrowser\dRowAudio_ColumnFileBrowser.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\gui\filebrowser\dRowAudio_ColumnFileBrowserLookAndFeel.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\maths\dRowAudio_BezierCurve.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\maths\dRowAudio_CumulativeMovingAverage.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\maths\dRowAudio_MathsUtilities.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\native\dRowAudio_AudioPicker.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\native\dRowAudio_AVAssetAudioFormat.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\native\dRowAudio_IOSAudioConverter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\network\dRowAudio_CURLEasySession.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\network\dRowAudio_CURLManager.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\parameters\dRowAudio_PluginParameter.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\streams\dRowAudio_MemoryInputSource.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\streams\dRowAudio_StreamAndFileHandler.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_Comparators.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_Constants.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_DebugObject.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_EncryptedString.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_ITunesLibrary.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_ITunesLibraryParser.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_LockedPointer.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_MusicLibraryHelpers.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_StateVariable.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_UnityBuilder.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_UnityProjectBuilder.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_Utility.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\utility\dRowAudio_XmlHelpers.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioFilePlayer.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioFilePlayerExt.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioSampleBufferAudioFormat.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_AudioUtility.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_Buffer.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_EnvelopeFollower.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_FifoBuffer.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_FilteringAudioSource.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_LoopingAudioSource.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_Pitch.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_PitchDetector.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_ReversibleAudioSource.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_SampleRateConverter.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_SoundTouchAudioSource.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\dRowAudio_SoundTouchProcessor.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\fft\dRowAudio_FFT.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\fft\dRowAudio_LTAS.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\fft\dRowAudio_Window.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\filters\dRowAudio_BiquadFilter.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\audio\filters\dRowAudio_OnePoleFilter.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_AudioFileDropTarget.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_AudioOscilloscope.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_AudioTransportCursor.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_CentreAlignViewport.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Clock.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_CpuMeter.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_DefaultColours.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_GraphicalComponent.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_GuiHelpers.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_MusicLibraryTable.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_SegmentedMeter.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Sonogram.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Spectrograph.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_Spectroscope.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\dRowAudio_TriggeredScope.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_AudioThumbnailImage.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_ColouredAudioThumbnail.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_DraggableWaveDisplay.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\audiothumbnail\dRowAudio_PositionableWaveDisplay.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\filebrowser\dRowAudio_BasicFileBrowser.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\filebrowser\dRowAudio_ColumnFileBrowser.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\gui\filebrowser\dRowAudio_ColumnFileBrowserLookAndFeel.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\maths\dRowAudio_BezierCurve.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\maths\dRowAudio_CumulativeMovingAverage.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\maths\dRowAudio_MathsUtilities.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\native\dRowAudio_AudioPicker.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\native\dRowAudio_AVAssetAudioFormat.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\native\dRowAudio_IOSAudioConverter.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\network\dRowAudio_CURLEasySession.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\network\dRowAudio_CURLManager.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\parameters\dRowAudio_PluginParameter.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\streams\dRowAudio_MemoryInputSource.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\streams\dRowAudio_StreamAndFileHandler.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_Comparators.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_Constants.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_DebugObject.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_EncryptedString.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_ITunesLibrary.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_ITunesLibraryParser.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_LockedPointer.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_MusicLibraryHelpers.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_StateVariable.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_UnityBuilder.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_UnityProjectBuilder.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_Utility.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\dRowAudio\utility\dRowAudio_XmlHelpers.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\dRowAudio\dRowAudio.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>
@@ -1489,6 +1499,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\midi\juce_MidiMessage.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\midi\juce_MidiMessageSequence.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\effects\juce_Decibels.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\effects\juce_FFT.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\effects\juce_IIRFilter.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\effects\juce_Reverb.h"/>
@@ -1502,7 +1513,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\sources\juce_ReverbAudioSource.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\sources\juce_ToneGeneratorAudioSource.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\synthesisers\juce_Synthesiser.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\juce_audio_basics.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\audio_io\juce_AudioDeviceManager.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\audio_io\juce_AudioIODevice.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\audio_io\juce_AudioIODeviceType.h"/>
@@ -1515,7 +1526,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\audio_cd\juce_AudioCDBurner.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\audio_cd\juce_AudioCDReader.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\native\juce_MidiDataConcatenator.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\juce_audio_devices.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\format\juce_AudioFormat.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\format\juce_AudioFormatManager.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\format\juce_AudioFormatReader.h"/>
@@ -1534,7 +1545,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\codecs\juce_WavAudioFormat.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\codecs\juce_WindowsMediaAudioFormat.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\sampler\juce_Sampler.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\juce_audio_formats.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\processors\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\processors\juce_AudioPluginInstance.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\processors\juce_AudioProcessor.h"/>
@@ -1556,7 +1567,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\scanning\juce_KnownPluginList.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\scanning\juce_PluginDirectoryScanner.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\scanning\juce_PluginListComponent.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\juce_audio_processors.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_processors\juce_audio_processors.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\gui\juce_AudioAppComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\gui\juce_AudioThumbnail.h"/>
@@ -1564,7 +1575,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\juce_audio_utils.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_audio_utils\juce_audio_utils.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\text\juce_CharacterFunctions.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\text\juce_CharPointer_ASCII.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
@@ -1677,20 +1688,22 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\native\juce_osx_ObjCHelpers.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\native\juce_posix_SharedCode.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\native\juce_win32_ComSmartPtr.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\juce_core.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_core\juce_core.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\encryption\juce_BlowFish.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\encryption\juce_Primes.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\encryption\juce_RSAKey.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\hashing\juce_MD5.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\hashing\juce_SHA256.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\juce_cryptography.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\hashing\juce_Whirlpool.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_cryptography\juce_cryptography.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\values\juce_Value.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\values\juce_ValueTree.h"/>
+    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\undomanager\juce_UndoableAction.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\undomanager\juce_UndoManager.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\app_properties\juce_ApplicationProperties.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\app_properties\juce_PropertiesFile.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\juce_data_structures.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\messages\juce_ApplicationBase.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\messages\juce_CallbackMessage.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\messages\juce_DeletedAtShutdown.h"/>
@@ -1714,7 +1727,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\native\juce_osx_MessageQueue.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\native\juce_ScopedXLock.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\native\juce_win32_HiddenMessageWindow.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\juce_events.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_events\juce_events.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\colour\juce_Colour.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\colour\juce_ColourGradient.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\colour\juce_Colours.h"/>
@@ -1752,7 +1765,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\native\juce_mac_CoreGraphicsContext.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\native\juce_mac_CoreGraphicsHelpers.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\native\juce_RenderingHelpers.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\juce_graphics.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_graphics\juce_graphics.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\components\juce_CachedComponentImage.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\components\juce_Component.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\components\juce_ComponentListener.h"/>
@@ -1880,7 +1893,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\misc\juce_DropShadower.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\application\juce_Application.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\native\juce_MultiTouchMapper.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\juce_gui_basics.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\code_editor\juce_CodeDocument.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\code_editor\juce_CodeEditorComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\code_editor\juce_CodeTokeniser.h"/>
@@ -1904,7 +1917,7 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\misc\juce_SystemTrayIconComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\misc\juce_WebBrowserComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\native\juce_mac_CarbonViewWrapperComponent.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\juce_gui_extra.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\opengl\juce_OpenGLContext.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\opengl\juce_OpenGLFrameBuffer.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\opengl\juce_OpenGLGraphicsContext.h"/>
@@ -1926,30 +1939,30 @@
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\native\juce_OpenGL_osx.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\native\juce_OpenGL_win32.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\native\juce_OpenGLExtensions.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\juce_opengl.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_opengl\juce_opengl.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_video\playback\juce_DirectShowComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_video\playback\juce_QuickTimeMovieComponent.h"/>
     <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_video\capture\juce_CameraDevice.h"/>
-    <ClInclude Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_video\juce_video.h"/>
+    <ClInclude Include="..\..\..\..\JUCE\modules\juce_video\juce_video.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\dRowAudio\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_basics\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_devices\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_formats\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_processors\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_audio_utils\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_core\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_cryptography\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_data_structures\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_events\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_graphics\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_basics\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_gui_extra\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_opengl\juce_module_info"/>
-    <None Include="..\..\..\..\..\..\Applications\JUCE-OSX\modules\juce_video\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\dRowAudio\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_audio_basics\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_audio_devices\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_audio_formats\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_audio_processors\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_audio_utils\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_core\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_cryptography\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_data_structures\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_events\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_graphics\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_gui_basics\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_gui_extra\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_opengl\juce_module_info"/>
+    <None Include="..\..\..\..\JUCE\modules\juce_video\juce_module_info"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc"/>

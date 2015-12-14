@@ -13,13 +13,13 @@
 //==============================================================================
 parameterComponent::parameterComponent(OwnedArray<Buffer>* _parametersBufferArray,const char* botonTexto[],int& numBandas){
     parametersBufferArray = _parametersBufferArray;
-    if(numBandas==10){
+    if(numBandas<=10){
         octaveResolution = true;
-        octaveBandComponent = new OctaveBandPlot(parametersBufferArray,false);
+        octaveBandComponent = new OctaveBandPlot(parametersBufferArray,false,numBandas);
         addAndMakeVisible(octaveBandComponent);
     }else{
         octaveResolution = false;
-        thirdBandComponent = new ThirdBandPlot(parametersBufferArray,false);
+        thirdBandComponent = new ThirdBandPlot(parametersBufferArray,false,numBandas);
         addAndMakeVisible(thirdBandComponent);
     }
     

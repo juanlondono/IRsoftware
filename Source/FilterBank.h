@@ -48,7 +48,8 @@ public:
 //==============================================================================
 class FilterBank{
 public:
-    FilterBank(int bandas);
+    //FilterBank(int bandas);
+    FilterBank(int _freqRes, double _Fs);
     ~FilterBank();
     void setCoeficientes();
     void processSamples(float* const input, OwnedArray<Buffer>* outputs, int numSamples);
@@ -58,6 +59,8 @@ protected:
     OwnedArray<BandFilter>          bandFiltersArray;
     int                             bandFilterOrder;
     int                             numeroBandas;
+    double                          Fs;
+    int                             freqRes;
     JUCE_LEAK_DETECTOR (FilterBank)
 };
 

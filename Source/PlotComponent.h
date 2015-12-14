@@ -132,7 +132,7 @@ public:
         }
     }
     
-    OctaveBandPlot(OwnedArray<Buffer>* _bufferArray,bool _isActive):PlotComponent(_bufferArray,_isActive,10){
+    OctaveBandPlot(OwnedArray<Buffer>* _bufferArray,bool _isActive,int _numBandas):PlotComponent(_bufferArray,_isActive,_numBandas){
         for (int i = 0; i < 11; i++){
             xLabels.push_back(bandasOctava[i]);
         }
@@ -156,14 +156,14 @@ public:
                 g.drawText(yLabels[6*yLabelOffset + i], 0 - GAP/2.0, (int) (i * yScale - GAP/4.0),GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
             }
             
-            float xScale = w / 10.0f;
+            float xScale = w / bufferSize;
             g.setOrigin(xScale/2, 0);               //translacion de eje x para pintar en la mitad de las casillas
             
-            for (int i = 0; i < 11; i++){
-                if (i==10)                              //se pinta "[Hz]" usando el mismo xScale pero con un desfase de 20
-                    g.drawText(xLabels[i], (int) (i * xScale - GAP/4.0 - 20), h ,GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
-                else
-                    g.drawText(xLabels[i], (int) (i * xScale - GAP/4.0), h ,GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
+            for (int i = 0; i < bufferSize; i++){
+                g.drawText(xLabels[i], (int) (i * xScale - GAP/4.0), h ,GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
+                if (i==bufferSize-1){                              //se pinta "[Hz]" usando el mismo xScale pero con un desfase de 20
+                    g.drawText(xLabels[10], (int) ((i+1)*xScale - GAP/4.0 - 20), h ,GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
+                }
             }
             
             if(isActive){
@@ -198,7 +198,7 @@ public:
         }
     }
     
-    ThirdBandPlot(OwnedArray<Buffer>* _bufferArray,bool _isActive):PlotComponent(_bufferArray,_isActive,30){
+    ThirdBandPlot(OwnedArray<Buffer>* _bufferArray,bool _isActive,int _numBandas):PlotComponent(_bufferArray,_isActive,_numBandas){
         for (int i = 0; i < 31; i++){
             xLabels.push_back(bandasTercio[i]);
         }
@@ -222,11 +222,14 @@ public:
                 g.drawText(yLabels[6*yLabelOffset+i], 0 - GAP/2.0, (int) (i * yScale - GAP/4.0),GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
             }
             
-            float xScale = w / 30.0f;
+            float xScale = (float) w / bufferSize;
             g.setOrigin(xScale/2, 0);               //translacion de eje x para pintar en la mitad de las casillas
             
-            for (int i = 0; i < 31; i++){
+            for (int i = 0; i < bufferSize; i++){
                 g.drawText(xLabels[i], (int) (i * xScale - GAP/4.0), h ,GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
+                if (i==bufferSize-1){                              //se pinta "[Hz]" usando el mismo xScale pero con un desfase de 10
+                    g.drawText(xLabels[30], (int) ((i+1)*xScale - GAP/4.0 + 10), h ,GAP/2.0,GAP/2.0, Justification::horizontallyCentred);
+                }
             }
             
             if(isActive){

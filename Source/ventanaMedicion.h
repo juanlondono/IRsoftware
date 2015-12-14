@@ -38,9 +38,10 @@ public:
     void definirFFT(int fftSize);
     
 private:
-    AudioDeviceManager& deviceManager;
+    AudioDeviceManager&                 deviceManager;
     
-    OwnedArray<Component> components;
+    OwnedArray<Component>               components;
+    
     template <typename ComponentType>
     ComponentType* addToList (ComponentType* newComp)
     {
@@ -49,39 +50,39 @@ private:
         return newComp;
     }
     
-    Slider                      gainsweep;
-    TextButton                  *testbtn;
-    TextButton                  *startbtn;
-    TextButton                  *deconvbtn;
-    ScopedPointer<TextEditor>   duracionsweep;
-    ScopedPointer<TextEditor>   duracionRTestimado;
-    ScopedPointer<ComboBox>     LinLog;
+    Slider                              gainsweep;
+    TextButton                          *testbtn;
+    TextButton                          *startbtn;
+    TextButton                          *deconvbtn;
+    ScopedPointer<TextEditor>           duracionsweep;
+    ScopedPointer<TextEditor>           duracionRTestimado;
+    ScopedPointer<ComboBox>             LinLog;
     
     //Meter
-    TimeSliceThread             meterThread;
-    SegmentedMeter              meterL;
+    TimeSliceThread                     meterThread;
+    SegmentedMeter                      meterL;
     
-    float amplitude;
-    float T; //Duración del sweep
-    float t;
-    float phase;
-    float valorRTestimado;
-    int SweepSize;
-    int fftSize;
-    unsigned int scount;
-    bool deconvolucion;
-    bool outputEnabled;
-    ScopedPointer<Signal> mySweeps;
-    //const float *SweepBuff;
-    
-    const float w1;//Frecuencia de Inicio de Sweep (inicializadas en la llamada al constructor)
-    const float w2;//Frecuencia Final del Sweep
+    float                               amplitude;
+    float                               T; //Duración del sweep
+    float                               phase;
+    float                               valorRTestimado;
+    int                                 sweepSizeSamples;
+    int                                 fftSize;
+    unsigned int                        scount;
+    bool                                deconvolucion;
+    bool                                outputEnabled;
+    ScopedPointer<Signal>               mySweeps;
+    ScopedPointer<AudioSampleBuffer>    amplitudEnvelope;
+    int                                 kp,Nt;
+        
+    const float                         f1;//Frecuencia de Inicio de Sweep (inicializadas en la llamada al constructor)
+    const float                         f2;//Frecuencia Final del Sweep
     
     //FFT
-    fftw_complex *x, *X, *y, *Y, *h, *H;
-    fftw_plan transformadaX;
-    fftw_plan transformadaY;
-    fftw_plan transformadah;
+    fftw_complex                        *x, *X, *y, *Y, *h, *H;
+    fftw_plan                           transformadaX;
+    fftw_plan                           transformadaY;
+    fftw_plan                           transformadah;
     
 };
 

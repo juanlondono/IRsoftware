@@ -45,12 +45,6 @@ readAheadThread("read Ahead thread"){
     addChildComponent(exportarIR=new TextButton("Exportar IR"));
     exportarIR->addListener(this);
     
-    NumeroBandas=10;
-    IRchanged=true;
-    validIR=false;
-    
-    setSize (1200, 520);
-    
     //Audio
     audioFormatManager.registerBasicFormats();
     audioDeviceManager.getAudioDeviceSetup(newAudioSetup);
@@ -80,6 +74,14 @@ readAheadThread("read Ahead thread"){
     for (int i=0; i<7; ++i) {
         Energeticos.add(new Buffer(30));
     }
+    
+    filterRes=octavas;                  //por defecto filtros por octava, dependiendo de Fs se define NumneroBandas
+    if(sampleRate==44100) numeroBandas=9;
+    else if (sampleRate==48000) numeroBandas=10;
+    IRchanged=true;
+    validIR=false;
+    
+    setSize (1200, 520);
 }
 
 //==============================================================================
@@ -154,8 +156,8 @@ PopupMenu MainContentComponent::getMenuForIndex(int menuIndex, const String& nam
         menu.addItem(importar, "Importar respuesta al impulso");
         menu.addItem(exParametros, CharPointer_UTF8 ("Exportar par\xc3\xa1metros ac\xc3\xbasticos"));
     }else if (name=="Bandas"){
-        menu.addItem(octava, "Por octava", validIR, (NumeroBandas==10));
-        menu.addItem(tercio, "Por tercio", validIR, (NumeroBandas==30));
+        menu.addItem(octava, "Por octava", validIR, filterRes==octavas);
+        menu.addItem(tercio, "Por tercio", validIR, filterRes==tercios);
     }else if (name=="Ayuda"){
         menu.addItem(ayuda, "Acerca de IRsoftware");
     }
@@ -193,11 +195,15 @@ void MainContentComponent::menuItemSelected(int menuID,  int index){
         exportarParametros();
     }
     else if (menuID==octava){
-        NumeroBandas=10;
+        filterRes=octavas;
+        if(sampleRate==44100) numeroBandas=9;
+        else if (sampleRate==48000) numeroBandas=10;
         encontrarParametros();
     }
     else if (menuID==tercio){
-        NumeroBandas=30;
+        filterRes=tercios;
+        if(sampleRate==44100) numeroBandas=29;
+        else if (sampleRate==48000) numeroBandas=30;
         encontrarParametros();
     }
 #if JUCE_MAC
@@ -247,7 +253,6 @@ void MainContentComponent::changeListenerCallback (ChangeBroadcaster* source){
         validIR=true;                           //variable para activar el menu->Bandas para escoger octava o tercio
 
         menuItemSelected(4, 1);                 //Llama al item para calcular por octava. (NumeroBandas=10;encontrarParametros();)
-        
     }
 }
 
@@ -255,7 +260,7 @@ void MainContentComponent::changeListenerCallback (ChangeBroadcaster* source){
 AudioDeviceManager& MainContentComponent::getAudioDeviceManagerCompartido(){
     if (deviceManagerCompartido==nullptr) {
         deviceManagerCompartido=new AudioDeviceManager();
-        deviceManagerCompartido->initialise(1, 2, 0, true);
+        deviceManagerCompartido->initialise(1, 1, 0, true);
     }
     return *deviceManagerCompartido;
 }
@@ -357,7 +362,7 @@ void MainContentComponent::filtrarIR(){
         filteredAudioArray.getUnchecked(i)->setSize(LongitudIRrecortada);
     }
     
-    ScopedPointer<FilterBank> filterBank = new FilterBank(NumeroBandas);
+    ScopedPointer<FilterBank> filterBank = new FilterBank(filterRes,sampleRate);
     filterBank->setCoeficientes();
     filterBank->processSamples(IRrecortada->getWritePointer(0), &filteredAudioArray, LongitudIRrecortada);
 }
@@ -390,10 +395,10 @@ void MainContentComponent::encontrarParametros(){
     filtrarIR();
     
     encontrarParametrosTemporales();
-    tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Temporales"), Colour(0xff2f2f2f),new parameterComponent(&Temporales,botonTextTime,NumeroBandas), true);
+    tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Temporales"), Colour(0xff2f2f2f),new parameterComponent(&Temporales,botonTextTime,numeroBandas), true);
     
     encontrarParametrosEnergeticos();
-    tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Energ\xc3\xa9ticos"), Colour(0xff2f2f2f),new parameterComponent(&Energeticos,botonTextEnergy,NumeroBandas), true);
+    tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Energ\xc3\xa9ticos"), Colour(0xff2f2f2f),new parameterComponent(&Energeticos,botonTextEnergy,numeroBandas), true);
 }
 
 //==============================================================================
@@ -404,7 +409,7 @@ void MainContentComponent::encontrarParametrosTemporales(){
     }
 
     ScopedPointer<ParametroTemporal> ObjetoTemporal=new ParametroTemporal(sampleRate);
-    for (int i=0; i<NumeroBandas; ++i) {
+    for (int i=0; i<numeroBandas; ++i) {
         //OJO!!!
         //Corregir el retraso del filtro y corregir el ruido!!!!
         //******************************************************
@@ -431,8 +436,8 @@ void MainContentComponent::encontrarParametrosEnergeticos(){
     
     ScopedPointer<ParametroEnergetico> ObjetoEnergetico=new ParametroEnergetico(sampleRate, true);
     int groupdelay;
-    for (int i=0; i<NumeroBandas; ++i) {
-        if (NumeroBandas==10) {
+    for (int i=0; i<numeroBandas; ++i) {
+        if (numeroBandas==10) {
             groupdelay=groupdelay10[i];
         }else{
             groupdelay=groupdelay30[i];
@@ -600,8 +605,8 @@ void MainContentComponent::exportarParametros(){
         outTxt.open(direccionT.toRawUTF8());
         outTxt << "Frecuencias[Hz]" << std::endl;
         
-        for (int i=0; i<NumeroBandas; ++i) {
-            if (NumeroBandas==10) {
+        for (int i=0; i<numeroBandas; ++i) {
+            if (numeroBandas==10) {
                 outTxt<< bandasOctava[i] << std::endl;
             }else{
                 outTxt<< bandasTercioOut[i] << std::endl;
@@ -609,38 +614,38 @@ void MainContentComponent::exportarParametros(){
         }
         
         outTxt << std::endl << "EDT[s]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Temporales.getUnchecked(0)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "T10[s]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Temporales.getUnchecked(1)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "T20[s]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Temporales.getUnchecked(2)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "T30[s]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Temporales.getUnchecked(3)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "Parametro de no Linealidad (Xi) - EDT" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Xi.getUnchecked(0)->getData()[i] << std::endl;
         }
         
         outTxt << std::endl << "Parametro de no Linealidad (Xi) - T10" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Xi.getUnchecked(1)->getData()[i] << std::endl;
         }
         
         outTxt << std::endl << "Parametro de no Linealidad (Xi) - T20" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Xi.getUnchecked(2)->getData()[i] << std::endl;
         }
         
         outTxt << std::endl << "Parametro de no Linealidad (Xi) - T30" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Xi.getUnchecked(3)->getData()[i] << std::endl;
         }
         outTxt.close();
@@ -648,8 +653,8 @@ void MainContentComponent::exportarParametros(){
         outTxt.open(direccionE.toRawUTF8());
         outTxt << "Frecuencias[Hz]" << std::endl;
         
-        for (int i=0; i<NumeroBandas; ++i) {
-            if (NumeroBandas==10) {
+        for (int i=0; i<numeroBandas; ++i) {
+            if (numeroBandas==10) {
                 outTxt<< bandasOctava[i] << std::endl;
             }else{
                 outTxt<< bandasTercioOut[i] << std::endl;
@@ -657,31 +662,31 @@ void MainContentComponent::exportarParametros(){
         }
        
         outTxt << std::endl <<  "C50[dB]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Energeticos.getUnchecked(0)->getData()[i] << std::endl;
         }
         outTxt << std::endl <<  "C80[dB]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Energeticos.getUnchecked(1)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "D50[-]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Energeticos.getUnchecked(4)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "Ts[ms]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Energeticos.getUnchecked(5)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "STe[dB]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Energeticos.getUnchecked(2)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "STl[dB]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Energeticos.getUnchecked(3)->getData()[i] << std::endl;
         }
         outTxt << std::endl << "SNR[dB]" << std::endl;
-        for (int i=0; i<NumeroBandas; ++i) {
+        for (int i=0; i<numeroBandas; ++i) {
             outTxt << Energeticos.getUnchecked(6)->getData()[i] << std::endl;
         }
         

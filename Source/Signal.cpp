@@ -17,7 +17,7 @@ Signal::Signal(){
     duracionSweepS=1;
     f1=1000;
     f2=21000;
-    t=0.0;
+    t=0.0l;
 }
 Signal::~Signal(){
     deleteAndZero(signalBuffer);
@@ -36,54 +36,46 @@ void Signal::setDuracionSweep(float duracion){
 const float *Signal::getReadSamples(float freq1, float freq2, int startSample, int numSamplesExpected, double SampleRate){
     signalBuffer->clear();
     signalBuffer->setSize(1, numSamplesExpected);
-    t=0.0;
-    if (freq1<0 || freq1>SampleRate/2) {
-        f1=20;
-    }else{
-        f1=freq1;
-    }
-    if (freq2<0 || freq2>SampleRate/2) {
-        f2=20000;
-    }else{
-        f2=freq2;
-    }
-    
+    t=0.0l;
+    f1=freq1;
+    f2=freq2;
     switch (tipoS) {
         case 1://Seno
             for (int i=0; i<numSamplesExpected; ++i) {
-                t=std::fmod(1.0/SampleRate*(i+startSample), 1);
+                t=fmod(1.0/SampleRate*(i+startSample), 1);
                 //t=1.0/SampleRate*(i+startSample);
-                signalBuffer->getWritePointer(0)[i]=std::sin(2*float_Pi*f1*t);
+                signalBuffer->getWritePointer(0)[i]=sin(2*float_Pi*f1*t);
             }
             break;
         case 2://Cuadrada
             for (int i=0; i<numSamplesExpected; ++i) {
-                t=std::fmod(1.0/SampleRate*(i+startSample), 1);
+                t=fmod(1.0/SampleRate*(i+startSample), 1);
                 signalBuffer->getWritePointer(0)[i]=powf(-1, floorf(2*f1*t));
             }
             break;
         case 3://Diente de sierra
             for (int i=0; i<numSamplesExpected; ++i) {
-                t=std::fmod(1.0/SampleRate*(i+startSample), 1);
+                t=fmod(1.0/SampleRate*(i+startSample), 1);
                 signalBuffer->getWritePointer(0)[i]=2*(freq1*t-floorf(f1*t-0.5)-1);
             }
             break;
         case 4://Triangular
             for (int i=0; i<numSamplesExpected; ++i) {
-                t=std::fmod(1.0/SampleRate*(i+startSample), 1);
+                t=fmod(1.0/SampleRate*(i+startSample), 1);
                 signalBuffer->getWritePointer(0)[i]=2*std::abs(2*floorf(f1*t - 0.25) - 2*f1*t + 1.5) - 1.0;
             }
             break;
         case 5://LinSweep
             for (int i=0; i<numSamplesExpected; ++i) {
                 t=fmod(1.0/SampleRate*(i+startSample), duracionSweepS);
-                signalBuffer->getWritePointer(0)[i]=std::sin(std::fmod((2.0f*float_Pi*f1*t) + (((2.0f*float_Pi*(f2-f1))*(1/(duracionSweepS*1)))*(t*t)/2), 2.0f*float_Pi));
+                signalBuffer->getWritePointer(0)[i]=sin(fmod((2.0f*float_Pi*f1*t) + (((2.0f*float_Pi*(f2-f1))*(1/((duracionSweepS)*1)))*(t*t)/2), 2.0f*float_Pi));
             }
             break;
         case 6://LogSweep
             for (int i=0; i<numSamplesExpected; ++i) {
                 t=fmod(1.0/SampleRate*(i+startSample), duracionSweepS);
-                signalBuffer->getWritePointer(0)[i]=std::sin(std::fmod(((2 * float_Pi*f1*(duracionSweepS*1))/(std::log(f2/f1)))*((std::exp((t/(duracionSweepS*1))*(std::log(f2/f1))))-1), 2.0f * float_Pi));
+                signalBuffer->getWritePointer(0)[i]=sin(fmod(((2 * float_Pi*f1*((duracionSweepS)*1))/(log(f2/f1)))*((exp((t/((duracionSweepS)*1))*(log(f2/f1))))-1), 2.0f * float_Pi));
+                
             }
             break;
         case 7://White noise

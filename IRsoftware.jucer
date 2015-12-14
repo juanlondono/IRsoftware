@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="wxIdF1" name="IRsoftware" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.yourcompany.IRsoftware" includeBinaryInAppConfig="1"
-              jucerVersion="3.1.0">
+              jucerVersion="3.2.0">
   <MAINGROUP id="MBEpk2" name="IRsoftware">
     <GROUP id="{869AB9BD-080F-5A1F-CD4F-44F062C14036}" name="Source">
       <FILE id="JF1RkB" name="CustomButtonComponent.cpp" compile="1" resource="0"
@@ -43,29 +43,29 @@
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" extraLinkerFlags="-lfftw3" externalLibraries="">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+        <CONFIGURATION name="Debug" osxSDK="10.10 SDK" osxCompatibility="10.9 SDK" osxArchitecture="default"
                        isDebug="1" optimisation="1" targetName="IRsoftware" headerPath="/usr/local/include"
                        libraryPath="/usr/local/lib"/>
-        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="10.9 SDK" osxArchitecture="default"
-                       isDebug="0" optimisation="2" targetName="IRsoftware" headerPath="/usr/local/include"
-                       libraryPath="/usr/local/lib"/>
+        <CONFIGURATION name="Release" osxSDK="10.10 SDK" osxCompatibility="10.9 SDK"
+                       osxArchitecture="default" isDebug="0" optimisation="2" targetName="IRsoftware"
+                       headerPath="/usr/local/include" libraryPath="/usr/local/lib"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_events" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_video" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../../Applications/JUCE-OSX/modules"/>
-        <MODULEPATH id="dRowAudio" path="../../../../Applications/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_core" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../JUCE/modules"/>
+        <MODULEPATH id="dRowAudio" path="../../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2012 targetFolder="Builds/VisualStudio2012">
