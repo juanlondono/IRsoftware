@@ -9,11 +9,11 @@
 #include "MainComponent.h"
 
 //Valiables globales del proyecto
-static ScopedPointer<AudioDeviceManager> deviceManagerCompartido;
-juce::AudioDeviceManager::AudioDeviceSetup newAudioSetup;
-double              sampleRate;
-AudioSampleBuffer   *IRcompleta;
-TextButton          *cancelMed;
+static ScopedPointer<AudioDeviceManager>    deviceManagerCompartido;
+juce::AudioDeviceManager::AudioDeviceSetup  newAudioSetup;
+double                                      sampleRate;
+AudioSampleBuffer                           *IRcompleta;
+TextButton                                  *cancelMed;
 
 //==============================================================================
 MainContentComponent::MainContentComponent(): audioDeviceManager(MainContentComponent::getAudioDeviceManagerCompartido()),
@@ -120,7 +120,8 @@ void MainContentComponent::paint (Graphics& g){
         g.setOrigin(0, 15);
         g.drawFittedText(String(CharPointer_UTF8 ("Duraci\xc3\xb3n: "))+String(std::ceil(IRcompleta->getNumSamples()*100.0/sampleRate)/100.0)+" [s]", getLocalBounds(), Justification::topLeft, 2);
         g.setOrigin(0, 15);
-        g.drawFittedText("Frecuencia de muestreo: "+String(sampleRate)+" [Hz]", getLocalBounds(), Justification::topLeft, 2);
+        g.drawFittedText("Frecuencia de muestreo: "+String(fsMostrar)+" [Hz]", getLocalBounds(), Justification::topLeft, 2);
+        
         g.resetToDefaultState();
         
         
@@ -249,6 +250,8 @@ void MainContentComponent::changeListenerCallback (ChangeBroadcaster* source){
         tabsComponent->setAlpha(1);
         
         soundfile=File();
+        fsMostrar=sampleRate;
+        
         exportarIR->setVisible(true);
         validIR=true;                           //variable para activar el menu->Bandas para escoger octava o tercio
 
@@ -274,13 +277,13 @@ void MainContentComponent::importarIR(){
         audioFormatReaderSource = nullptr;
         
         soundfile=chooser.getResult();
-        AudioFormatReader *audioFormatReader = audioFormatManager.createReaderFor(soundfile);
+        audioFormatReader = audioFormatManager.createReaderFor(soundfile);
         
         IRcompleta->clear();
         IRcompleta->setSize(1, audioFormatReader->lengthInSamples);
-        //ScopedPointer<AudioSampleBuffer> audioBuffer = new AudioSampleBuffer(1, audioFormatReader->lengthInSamples); //audioBuffer para leer archivo wav
         audioFormatReader->read(IRcompleta, 0, audioFormatReader->lengthInSamples, 0, true, false);
         sampleRate=audioFormatReader->sampleRate;
+        fsMostrar=sampleRate;
         
         //Aqui se cambia la frecuencia de muestreo de la sesión a la del .wav
         audioDeviceManager.getAudioDeviceSetup(newAudioSetup);
@@ -392,13 +395,18 @@ void MainContentComponent::encontrarParametros(){
     
     tabsComponent->addTab("Respuesta al Impulso", Colour(0xff2f2f2f), new AudioWaveForm(bufferWaveform,true), true);
     
-    filtrarIR();
-    
-    encontrarParametrosTemporales();
-    tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Temporales"), Colour(0xff2f2f2f),new parameterComponent(&Temporales,botonTextTime,numeroBandas), true);
-    
-    encontrarParametrosEnergeticos();
-    tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Energ\xc3\xa9ticos"), Colour(0xff2f2f2f),new parameterComponent(&Energeticos,botonTextEnergy,numeroBandas), true);
+    if ((sampleRate==48000)||(sampleRate==44100)) {
+        filtrarIR();
+        
+        encontrarParametrosTemporales();
+        tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Temporales"), Colour(0xff2f2f2f),new parameterComponent(&Temporales,botonTextTime,numeroBandas), true);
+        
+        encontrarParametrosEnergeticos();
+        tabsComponent->addTab(CharPointer_UTF8 ("Par\xc3\xa1meros Energ\xc3\xa9ticos"), Colour(0xff2f2f2f),new parameterComponent(&Energeticos,botonTextEnergy,numeroBandas), true);
+    }else{
+        AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon, "Advertencia", CharPointer_UTF8 ("El c\xc3\xa1lculo de los par\xc3\xa1metros ac\xc3\xbasticos solo es v\xc3\xa1lido para respuestas al impulso con frecuencia de m"
+                                         "uestreo igual a 44100 o 48000 [Hz]."));
+    }
 }
 
 //==============================================================================
@@ -614,7 +622,7 @@ void MainContentComponent::exportarParametros(){
         outTxt << "Frecuencias[Hz]" << std::endl;
         
         for (int i=0; i<numeroBandas; ++i) {
-            if (numeroBandas==10) {
+            if (numeroBandas==10||numeroBandas==9) {
                 outTxt<< bandasOctava[i] << std::endl;
             }else{
                 outTxt<< bandasTercioOut[i] << std::endl;
@@ -662,7 +670,7 @@ void MainContentComponent::exportarParametros(){
         outTxt << "Frecuencias[Hz]" << std::endl;
         
         for (int i=0; i<numeroBandas; ++i) {
-            if (numeroBandas==10) {
+            if (numeroBandas==10||numeroBandas==9) {
                 outTxt<< bandasOctava[i] << std::endl;
             }else{
                 outTxt<< bandasTercioOut[i] << std::endl;

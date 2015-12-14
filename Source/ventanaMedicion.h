@@ -86,7 +86,7 @@ private:
     
 };
 
-class ventanaConfiguracionesAudio : public Component, public ButtonListener
+class ventanaConfiguracionesAudio : public Component, public ButtonListener, public ChangeListener
 {
 public:
     ventanaConfiguracionesAudio();
@@ -107,6 +107,8 @@ public:
     
     void paint (Graphics& g){}
     void buttonClicked(Button* buttonThatWasClicked);
+    
+    void changeListenerCallback (ChangeBroadcaster*);
     
 private:
     AudioDeviceManager& deviceManager;

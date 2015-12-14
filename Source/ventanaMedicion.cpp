@@ -341,10 +341,12 @@ ventanaConfiguracionesAudio::ventanaConfiguracionesAudio() : deviceManager(MainC
     addAndMakeVisible(settingsComp);
     //settingsComp.setSize(480, 280);
     settingsComp.setSize(320, 420*75/100);//320 es el gap de la ventana principal
-
+    
     addAndMakeVisible(botonSiguiente=new TextButton("Siguiente"));
     botonSiguiente->setBounds(320/2-120/2,420*75/100,120,25);
     botonSiguiente->addListener(this);
+    
+    MainContentComponent::getAudioDeviceManagerCompartido().addChangeListener(this);
     
 }
 
@@ -363,4 +365,18 @@ void ventanaConfiguracionesAudio::buttonClicked(Button* buttonThatWasClicked){
         }
     }
     
+}
+
+void ventanaConfiguracionesAudio::changeListenerCallback (ChangeBroadcaster*){
+    deviceManager.getAudioDeviceSetup(newAudioSetup);
+    
+    if (!((newAudioSetup.sampleRate==48000)||(newAudioSetup.sampleRate==44100))) {
+        botonSiguiente->setEnabled(false);
+        if (isVisible()) {
+            AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon, "Advertencia", CharPointer_UTF8 ("Por favor seleccione una frecuencia de muestreo v\xc3\xa1lida: 44100 o 48000 [Hz]."));
+        }
+    }else{
+        botonSiguiente->setEnabled(true);
+    }
+
 }

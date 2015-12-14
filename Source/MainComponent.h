@@ -111,8 +111,10 @@ private:
     ScopedPointer<Buffer>                   bufferWaveform;
     ScopedPointer<TabbedComponent>          tabsComponent;
     ScopedPointer<GroupComponent>           info;
+    double                                  fsMostrar;
     
     //Para leer wav
+    AudioFormatReader                       *audioFormatReader;
     File                                    soundfile;
     AudioFormatManager                      audioFormatManager;
     ScopedPointer<AudioFormatReaderSource>  audioFormatReaderSource;
