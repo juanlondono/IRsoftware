@@ -100,6 +100,8 @@ MainContentComponent::~MainContentComponent(){
     audioFormatReaderSource=nullptr;
     deviceManagerCompartido=nullptr;
     readAheadThread.stopThread (500);
+    
+    aboutWindow.deleteAndZero();
 }
 
 //==============================================================================
@@ -123,10 +125,7 @@ void MainContentComponent::paint (Graphics& g){
         g.drawFittedText("Frecuencia de muestreo: "+String(fsMostrar)+" [Hz]", getLocalBounds(), Justification::topLeft, 2);
         
         g.resetToDefaultState();
-        
-        
     }
-
 }
 
 //==============================================================================
@@ -145,7 +144,7 @@ void MainContentComponent::resized(){
 
 //==============================================================================
 StringArray MainContentComponent:: getMenuBarNames(){
-    const char* const MenuNames[] = {"Archivo", "Bandas", "Acerca de", nullptr};
+    const char* const MenuNames[] = {"Archivo", "Bandas", "Ayuda", nullptr};
     return StringArray (MenuNames);
 }
 
@@ -160,7 +159,7 @@ PopupMenu MainContentComponent::getMenuForIndex(int menuIndex, const String& nam
         menu.addItem(octava, "Por octava", validIR, filterRes==octavas);
         menu.addItem(tercio, "Por tercio", validIR, filterRes==tercios);
     }else if (name=="Ayuda"){
-        menu.addItem(ayuda, "Acerca de IRsoftware");
+        menu.addItem(about, "Acerca de IRsoftware");
     }
     return menu;
 }
@@ -206,6 +205,9 @@ void MainContentComponent::menuItemSelected(int menuID,  int index){
         if(sampleRate==44100) numeroBandas=29;
         else if (sampleRate==48000) numeroBandas=30;
         encontrarParametros();
+    }
+    else if (menuID==about){
+        aboutWindow = new AboutWindow ("Acerca de este Software",Colour(0xff3f3f3f),DocumentWindow::allButtons);
     }
 #if JUCE_MAC
     menuBar->setModel (nullptr);

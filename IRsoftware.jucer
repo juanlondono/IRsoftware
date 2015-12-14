@@ -5,6 +5,10 @@
               jucerVersion="3.2.0">
   <MAINGROUP id="MBEpk2" name="IRsoftware">
     <GROUP id="{869AB9BD-080F-5A1F-CD4F-44F062C14036}" name="Source">
+      <FILE id="sxrYnk" name="AboutWindow.h" compile="0" resource="0" file="Source/AboutWindow.h"/>
+      <FILE id="yf0dSL" name="EmbeddedImage.cpp" compile="1" resource="0"
+            file="Source/EmbeddedImage.cpp"/>
+      <FILE id="vkdtTS" name="EmbeddedImage.h" compile="0" resource="0" file="Source/EmbeddedImage.h"/>
       <FILE id="JF1RkB" name="CustomButtonComponent.cpp" compile="1" resource="0"
             file="Source/CustomButtonComponent.cpp"/>
       <FILE id="drpxah" name="CustomButtonComponent.h" compile="0" resource="0"

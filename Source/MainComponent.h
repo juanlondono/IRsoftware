@@ -20,6 +20,7 @@
 #include "ParametroTemporal.h"
 #include "ParametroEnergetico.h"
 #include "ventanaMedicion.h"
+#include "AboutWindow.h"
 using namespace drow;
 
 //Variables Globales
@@ -77,7 +78,7 @@ public:
     //Menu Bar
     StringArray getMenuBarNames();
     PopupMenu getMenuForIndex(int index,const String& name);
-    enum MenuIDs{medicion=1,importar,exParametros,octava,tercio, ayuda};
+    enum MenuIDs{medicion=1,importar,exParametros,octava,tercio, about};
     void menuItemSelected(int menuID, int index);
     //==============================================================================
    
@@ -125,7 +126,7 @@ private:
     
     ventanaConfiguracionesAudio             ventanaConf;
     ventanaMedicion                         ventanaMedicion;
-    
+    Component::SafePointer<AboutWindow>     aboutWindow;
     TextButton                              *exportarIR;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)
