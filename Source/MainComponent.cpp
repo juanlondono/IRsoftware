@@ -437,9 +437,17 @@ void MainContentComponent::encontrarParametrosEnergeticos(){
     ScopedPointer<ParametroEnergetico> ObjetoEnergetico=new ParametroEnergetico(sampleRate, true);
     int groupdelay;
     for (int i=0; i<numeroBandas; ++i) {
-        if (numeroBandas==10) {
+        
+        if (numeroBandas==9) {
+            groupdelay=groupdelay9[i];
+        }
+        else if(numeroBandas==10){
             groupdelay=groupdelay10[i];
-        }else{
+        }
+        else if (numeroBandas==29){
+            groupdelay=groupdelay29[i];
+        }
+        else if (numeroBandas==30){
             groupdelay=groupdelay30[i];
         }
         
